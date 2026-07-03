@@ -23,9 +23,8 @@ jobs:
           echo "sdk.dir=/usr/local/lib/android/sdk" > android/local.properties
           echo "ANDROID_HOME=/usr/local/lib/android/sdk" >> $GITHUB_ENV
 
-      - name: Install required SDK packages
-        run: |
-          yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0"
+      - name: Install npm dependencies
+        run: npm install
 
       - name: Copy web assets
         run: |
