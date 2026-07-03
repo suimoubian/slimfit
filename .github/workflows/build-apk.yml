@@ -18,44 +18,33 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Setup Android SDK
+        run: |
+          mkdir -p $HOME/android-sdk
+          cd $HOME/android-sdk
+          curl -sSLO https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+          unzip -q commandlinetools-linux-11076708_latest.zip
+          mkdir -p latest
+          mv cmdline-tools/* latest/
+          rmdir cmdline-tools
+          mv latest cmdline-tools
+          yes | cmdline-tools/latest/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-35" "build-tools;35.0.0" "platform-tools"
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+
       - name: Copy web assets
         run: |
           mkdir -p www
           cp -r index.html manifest.json sw.js recipes.json css js assets www/
 
-      - name: Generate keystore
-        run: |
-          keytool -genkey -v \
-            -keystore android/slimfit.keystore \
-            -alias slimfit \
-            -keyalg RSA -keysize 2048 -validity 10000 \
-            -storepass "${{ secrets.KEYSTORE_PASS }}" \
-            -keypass "${{ secrets.KEYSTORE_PASS }}" \
-            -dname "CN=SlimFit, OU=App, O=SlimFit, L=Beijing, ST=Beijing, C=CN"
-
-      - name: Create keystore.properties
-        run: |
-          echo "storeFile=slimfit.keystore" > android/keystore.properties
-          echo "storePassword=${{ secrets.KEYSTORE_PASS }}" >> android/keystore.properties
-          echo "keyAlias=slimfit" >> android/keystore.properties
-          echo "keyPassword=${{ secrets.KEYSTORE_PASS }}" >> android/keystore.properties
-
-      - name: Build APK
+      - name: Build Debug APK
         working-directory: android
         run: |
           chmod +x gradlew
-          export ANDROID_HOME=/usr/local/lib/android/sdk
-          export ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
-          ./gradlew assembleDebug assembleRelease
+          ./gradlew assembleDebug
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: SlimFit-Debug-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: SlimFit-Release-APK
-          path: android/app/build/outputs/apk/release/app-release.apk
