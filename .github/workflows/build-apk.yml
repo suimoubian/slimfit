@@ -18,20 +18,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Android SDK
-        run: |
-          mkdir -p $HOME/android-sdk
-          cd $HOME/android-sdk
-          curl -sSLO https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
-          unzip -q commandlinetools-linux-11076708_latest.zip
-          mkdir -p latest
-          mv cmdline-tools/* latest/
-          rmdir cmdline-tools
-          mv latest cmdline-tools
-          yes | cmdline-tools/latest/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-35" "build-tools;35.0.0" "platform-tools"
-          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
-
       - name: Copy web assets
         run: |
           mkdir -p www
@@ -41,6 +27,7 @@ jobs:
         working-directory: android
         run: |
           chmod +x gradlew
+          export ANDROID_HOME=$ANDROID_HOME
           ./gradlew assembleDebug
 
       - name: Upload Debug APK
