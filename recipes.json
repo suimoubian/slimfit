@@ -1,0 +1,364 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-07-03",
+  "ingredients": {
+    "chicken_breast":    { "name": "鸡胸肉",     "kcal": 133, "protein": 31, "carb": 0,   "fat": 1.2,  "cat": "protein" },
+    "eggs":              { "name": "鸡蛋",       "kcal": 144, "protein": 13, "carb": 2,   "fat": 9,    "cat": "protein" },
+    "tofu":              { "name": "豆腐",       "kcal": 76,  "protein": 8,  "carb": 2,   "fat": 4,    "cat": "protein" },
+    "salmon":            { "name": "三文鱼",     "kcal": 208, "protein": 20, "carb": 0,   "fat": 13,   "cat": "protein" },
+    "shrimp":            { "name": "虾仁",       "kcal": 99,  "protein": 24, "carb": 0,   "fat": 0.3,  "cat": "protein" },
+    "lean_beef":         { "name": "瘦牛肉",     "kcal": 125, "protein": 22, "carb": 0,   "fat": 4,    "cat": "protein" },
+    "cod":               { "name": "鳕鱼",       "kcal": 82,  "protein": 18, "carb": 0,   "fat": 0.5,  "cat": "protein" },
+    "turkey_breast":     { "name": "火鸡胸肉",   "kcal": 135, "protein": 30, "carb": 0,   "fat": 1,    "cat": "protein" },
+    "broccoli":          { "name": "西兰花",     "kcal": 34,  "protein": 3,  "carb": 7,   "fat": 0.4,  "cat": "veggie" },
+    "spinach":           { "name": "菠菜",       "kcal": 23,  "protein": 3,  "carb": 4,   "fat": 0.3,  "cat": "veggie" },
+    "cucumber":          { "name": "黄瓜",       "kcal": 16,  "protein": 0.7,"carb": 3,   "fat": 0.1,  "cat": "veggie" },
+    "tomato":            { "name": "番茄",       "kcal": 18,  "protein": 0.9,"carb": 4,   "fat": 0.2,  "cat": "veggie" },
+    "lettuce":           { "name": "生菜",       "kcal": 15,  "protein": 1.4,"carb": 2,   "fat": 0.2,  "cat": "veggie" },
+    "carrot":            { "name": "胡萝卜",     "kcal": 41,  "protein": 0.9,"carb": 10,  "fat": 0.2,  "cat": "veggie" },
+    "oats":              { "name": "燕麦",       "kcal": 389, "protein": 17, "carb": 66,  "fat": 7,    "cat": "staple" },
+    "brown_rice":        { "name": "糙米",       "kcal": 123, "protein": 2.7,"carb": 26,  "fat": 0.9,  "cat": "staple" },
+    "sweet_potato":      { "name": "红薯",       "kcal": 86,  "protein": 1.6,"carb": 20,  "fat": 0.1,  "cat": "staple" },
+    "quinoa":            { "name": "藜麦",       "kcal": 120, "protein": 4.4,"carb": 21,  "fat": 1.9,  "cat": "staple" },
+    "whole_wheat_bread": { "name": "全麦面包",   "kcal": 247, "protein": 9,  "carb": 41,  "fat": 3.4,  "cat": "staple" },
+    "corn":              { "name": "玉米",       "kcal": 112, "protein": 4,  "carb": 22,  "fat": 1.2,  "cat": "staple" },
+    "apple":             { "name": "苹果",       "kcal": 52,  "protein": 0.3,"carb": 14,  "fat": 0.2,  "cat": "fruit" },
+    "banana":            { "name": "香蕉",       "kcal": 89,  "protein": 1.1,"carb": 23,  "fat": 0.3,  "cat": "fruit" },
+    "blueberry":         { "name": "蓝莓",       "kcal": 57,  "protein": 0.7,"carb": 14,  "fat": 0.3,  "cat": "fruit" },
+    "avocado":           { "name": "牛油果",     "kcal": 160, "protein": 2,  "carb": 9,   "fat": 15,   "cat": "fruit" },
+    "mushroom":          { "name": "蘑菇",       "kcal": 22,  "protein": 3,  "carb": 3,   "fat": 0.3,  "cat": "veggie" },
+    "greek_yogurt":      { "name": "希腊酸奶",   "kcal": 97,  "protein": 9,  "carb": 4,   "fat": 5,    "cat": "protein" },
+    "milk":              { "name": "脱脂牛奶",   "kcal": 35,  "protein": 3.4,"carb": 5,   "fat": 0.1,  "cat": "protein" },
+    "olive_oil":         { "name": "橄榄油",     "kcal": 884, "protein": 0,  "carb": 0,   "fat": 100,  "cat": "fat" },
+    "nuts_mix":          { "name": "混合坚果",   "kcal": 607, "protein": 20, "carb": 21,  "fat": 54,   "cat": "fat" },
+    "pumpkin":           { "name": "南瓜",       "kcal": 26,  "protein": 1,  "carb": 7,   "fat": 0.1,  "cat": "veggie" },
+    "celery":            { "name": "芹菜",       "kcal": 16,  "protein": 0.7,"carb": 3,   "fat": 0.2,  "cat": "veggie" },
+    "bell_pepper":       { "name": "彩椒",       "kcal": 31,  "protein": 1,  "carb": 6,   "fat": 0.3,  "cat": "veggie" },
+    "cauliflower":       { "name": "花菜",       "kcal": 25,  "protein": 2,  "carb": 5,   "fat": 0.3,  "cat": "veggie" },
+    "zucchini":          { "name": "西葫芦",     "kcal": 17,  "protein": 1.2,"carb": 3,   "fat": 0.3,  "cat": "veggie" },
+    "seaweed":           { "name": "海带",       "kcal": 13,  "protein": 1,  "carb": 2,   "fat": 0.1,  "cat": "veggie" }
+  },
+  "recipes": [
+    {
+      "id": "r01",
+      "name": "燕麦蓝莓早餐碗",
+      "mealType": "breakfast",
+      "ingredients": [
+        { "id": "oats", "amount": 40, "unit": "g" },
+        { "id": "milk", "amount": 200, "unit": "ml" },
+        { "id": "blueberry", "amount": 50, "unit": "g" },
+        { "id": "banana", "amount": 0.5, "unit": "根" }
+      ],
+      "steps": [
+        "燕麦和牛奶放入小锅中，中火煮3-5分钟，期间搅拌防止粘锅。",
+        "煮至燕麦变软、粥状浓稠后盛入碗中。",
+        "蓝莓洗净，香蕉切片，铺在燕麦粥上即可。",
+        "喜欢甜味可加少许蜂蜜（不计入热量）。"
+      ],
+      "rationale": "燕麦富含beta-葡聚糖可溶性膳食纤维，能延缓胃排空、提供持久饱腹感，同时稳定血糖。蓝莓提供花青素抗氧化，香蕉补充钾元素。脱脂牛奶提供优质蛋白和钙。整个早餐约350kcal，低GI设计适合减脂期。"
+    },
+    {
+      "id": "r02",
+      "name": "水煮蛋 + 全麦吐司 + 黄瓜",
+      "mealType": "breakfast",
+      "ingredients": [
+        { "id": "eggs", "amount": 2, "unit": "个" },
+        { "id": "whole_wheat_bread", "amount": 60, "unit": "g" },
+        { "id": "cucumber", "amount": 150, "unit": "g" }
+      ],
+      "steps": [
+        "鸡蛋冷水下锅，水沸后煮7-8分钟（全熟），捞出过凉水剥壳。",
+        "全麦面包烤至微脆（可选），黄瓜洗净切片。",
+        "摆盘即可食用，可搭配少许黑胡椒调味。"
+      ],
+      "rationale": "鸡蛋是完美蛋白质来源，氨基酸配比接近人体需求，两个鸡蛋约13g蛋白质。全麦面包低GI缓慢释放能量，避免血糖骤升骤降导致的饥饿感。黄瓜几乎零热量，提供水分和咀嚼满足感。总热量约350kcal，高蛋白低碳水组合。"
+    },
+    {
+      "id": "r03",
+      "name": "希腊酸奶水果杯",
+      "mealType": "breakfast",
+      "ingredients": [
+        { "id": "greek_yogurt", "amount": 150, "unit": "g" },
+        { "id": "apple", "amount": 0.5, "unit": "个" },
+        { "id": "blueberry", "amount": 40, "unit": "g" },
+        { "id": "nuts_mix", "amount": 10, "unit": "g" }
+      ],
+      "steps": [
+        "苹果切小丁，蓝莓洗净。",
+        "杯中先铺一层希腊酸奶，再铺一层水果，重复。",
+        "顶部撒上混合坚果碎即可。"
+      ],
+      "rationale": "希腊酸奶经过过滤浓缩，蛋白质含量是普通酸奶的2倍，益生菌有助于肠道健康。苹果含果胶可延缓糖分吸收。坚果提供健康不饱和脂肪酸和维生素E，10g刚好提供风味而不超热量。总热量约280kcal，高蛋白、富含益生菌。"
+    },
+    {
+      "id": "r04",
+      "name": "鸡胸肉西兰花糙米饭",
+      "mealType": "lunch",
+      "ingredients": [
+        { "id": "chicken_breast", "amount": 150, "unit": "g" },
+        { "id": "broccoli", "amount": 200, "unit": "g" },
+        { "id": "brown_rice", "amount": 150, "unit": "g（熟重）" },
+        { "id": "olive_oil", "amount": 5, "unit": "ml" }
+      ],
+      "steps": [
+        "糙米提前浸泡30分钟，加水煮熟（水米比约1.5:1）。",
+        "鸡胸肉横切薄片，用少许盐、黑胡椒、料酒腌制10分钟。",
+        "西兰花掰小朵，沸水焯烫1分钟后捞出过凉。",
+        "平底锅加橄榄油，中火煎鸡胸肉，每面约3分钟至金黄熟透。",
+        "装盘：糙米饭铺底，放上鸡胸肉和西兰花。"
+      ],
+      "rationale": "鸡胸肉是几乎最瘦的蛋白质来源（脂肪仅1.2%），150g提供46g蛋白质。西兰花高纤维低热量，含萝卜硫素具有抗炎作用。糙米保留米糠层，膳食纤维是白米的4倍，GI值低30%。橄榄油提供单不饱和脂肪酸。总热量约420kcal，均衡搭配。"
+    },
+    {
+      "id": "r05",
+      "name": "香煎三文鱼配藜麦沙拉",
+      "mealType": "lunch",
+      "ingredients": [
+        { "id": "salmon", "amount": 120, "unit": "g" },
+        { "id": "quinoa", "amount": 80, "unit": "g（生重）" },
+        { "id": "lettuce", "amount": 100, "unit": "g" },
+        { "id": "tomato", "amount": 100, "unit": "g" },
+        { "id": "avocado", "amount": 0.25, "unit": "个" },
+        { "id": "olive_oil", "amount": 5, "unit": "ml" }
+      ],
+      "steps": [
+        "藜麦洗净，加1.5倍水煮15分钟至水干、颗粒透明。",
+        "三文鱼用厨房纸吸干水分，撒少许盐和黑胡椒。",
+        "平底锅中小火，不用油，鱼皮面朝下煎4分钟，翻面再煎2分钟。",
+        "生菜撕碎，番茄切块，牛油果切片，与煮好的藜麦混合。",
+        "淋上橄榄油和少许柠檬汁（或醋）拌匀，三文鱼放在沙拉上。"
+      ],
+      "rationale": "三文鱼是Omega-3脂肪酸（EPA/DHA）的优质来源，具有抗炎作用，有助于减脂期的代谢健康。藜麦是完整蛋白质（含全部9种必需氨基酸），升糖指数低。牛油果提供健康脂肪和维生素E。总热量约490kcal，营养密度高。"
+    },
+    {
+      "id": "r06",
+      "name": "虾仁豆腐蔬菜汤",
+      "mealType": "lunch",
+      "ingredients": [
+        { "id": "shrimp", "amount": 150, "unit": "g" },
+        { "id": "tofu", "amount": 200, "unit": "g" },
+        { "id": "spinach", "amount": 150, "unit": "g" },
+        { "id": "mushroom", "amount": 100, "unit": "g" },
+        { "id": "carrot", "amount": 50, "unit": "g" }
+      ],
+      "steps": [
+        "虾仁去虾线，用少许盐和料酒腌制。豆腐切2cm方块。",
+        "胡萝卜切片，蘑菇切片，菠菜洗净。",
+        "锅中加水800ml烧开，放入胡萝卜和蘑菇煮3分钟。",
+        "加入豆腐和虾仁煮2分钟，最后放菠菜烫30秒。",
+        "加少许盐和白胡椒粉调味出锅。"
+      ],
+      "rationale": "虾仁蛋白质含量高达24g/100g且几乎零脂肪，是减脂期理想蛋白源。豆腐提供植物蛋白和大豆异黄酮。菠菜和蘑菇提供丰富膳食纤维和微量元素。汤类食物含水量高，能增加饱腹感而不增加热量。总热量约320kcal，低脂高蛋白。"
+    },
+    {
+      "id": "r07",
+      "name": "瘦牛肉南瓜藜麦碗",
+      "mealType": "lunch",
+      "ingredients": [
+        { "id": "lean_beef", "amount": 120, "unit": "g" },
+        { "id": "pumpkin", "amount": 200, "unit": "g" },
+        { "id": "quinoa", "amount": 70, "unit": "g（生重）" },
+        { "id": "bell_pepper", "amount": 100, "unit": "g" },
+        { "id": "olive_oil", "amount": 3, "unit": "ml" }
+      ],
+      "steps": [
+        "藜麦煮熟备用。南瓜切块蒸15分钟至软。",
+        "瘦牛肉切薄片或条，彩椒切丝。",
+        "平底锅加橄榄油，大火快炒牛肉至变色，加入彩椒翻炒1分钟。",
+        "碗中依次放入藜麦、南瓜、牛肉彩椒即可。"
+      ],
+      "rationale": "瘦牛肉提供优质动物蛋白和血红素铁，预防减脂期贫血。南瓜低热量高纤维，含丰富beta-胡萝卜素。彩椒维生素C含量是橙子的3倍，帮助铁吸收。总热量约430kcal。"
+    },
+    {
+      "id": "r08",
+      "name": "红薯鸡胸能量碗",
+      "mealType": "lunch",
+      "ingredients": [
+        { "id": "sweet_potato", "amount": 200, "unit": "g" },
+        { "id": "chicken_breast", "amount": 130, "unit": "g" },
+        { "id": "spinach", "amount": 100, "unit": "g" },
+        { "id": "corn", "amount": 50, "unit": "g（玉米粒）" }
+      ],
+      "steps": [
+        "红薯洗净（不去皮）切块，蒸20分钟至筷子能轻松插入。",
+        "鸡胸肉水煮或煎熟，撕成丝。",
+        "菠菜焯水30秒捞出。玉米粒煮熟。",
+        "所有食材装碗，可搭配少许低脂沙拉酱或酸奶酱。"
+      ],
+      "rationale": "红薯是优质复合碳水，GI值低于白米饭和土豆，膳食纤维丰富，能稳定血糖。搭配鸡胸肉的高蛋白和菠菜的微量元素，构成完整一餐。总热量约380kcal，适合午餐或运动后补充。"
+    },
+    {
+      "id": "r09",
+      "name": "番茄蔬菜鸡胸意面",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "chicken_breast", "amount": 100, "unit": "g" },
+        { "id": "tomato", "amount": 200, "unit": "g" },
+        { "id": "broccoli", "amount": 100, "unit": "g" },
+        { "id": "mushroom", "amount": 80, "unit": "g" },
+        { "id": "olive_oil", "amount": 5, "unit": "ml" }
+      ],
+      "steps": [
+        "鸡胸肉切丁。番茄开水烫后去皮切碎。西兰花掰小朵焯水。",
+        "平底锅加橄榄油，炒香蒜末（可选），加入番茄碎小火熬成酱状。",
+        "加入鸡胸丁翻炒至变色，加入蘑菇片和少许水焖3分钟。",
+        "加入西兰花翻炒均匀，加盐和黑胡椒调味。",
+        "可直接食用，或搭配少量全麦意面（需另计热量）。"
+      ],
+      "rationale": "用大量番茄自制酱汁代替市售高糖番茄酱，番茄红素加热后更易吸收。鸡胸肉切丁增大了视觉体积，使人感觉吃得更多。蘑菇增添鲜味（含天然谷氨酸），减少对盐的需求。总热量约280kcal（不含意面），低卡高饱腹感。"
+    },
+    {
+      "id": "r10",
+      "name": "清蒸鱼配时蔬",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "cod", "amount": 120, "unit": "g" },
+        { "id": "broccoli", "amount": 150, "unit": "g" },
+        { "id": "carrot", "amount": 80, "unit": "g" },
+        { "id": "mushroom", "amount": 80, "unit": "g" }
+      ],
+      "steps": [
+        "鳕鱼用少许盐、姜丝、料酒腌制10分钟。",
+        "蒸锅水烧开，鱼放入蒸盘，大火蒸8-10分钟。",
+        "蔬菜（西兰花、胡萝卜片、蘑菇）铺在鱼周围一起蒸，或另起蒸笼。",
+        "出锅后倒掉盘中多余汤汁，淋少许蒸鱼豉油（可选）。"
+      ],
+      "rationale": "蒸是最健康的烹饪方式之一，不额外增加油脂，最大程度保留食材营养。鳕鱼低脂高蛋白（仅0.5%脂肪），肉质细嫩易消化。晚餐选择蒸鱼而非煎炸，大幅降低热量。总热量约220kcal，非常适合清淡晚餐。"
+    },
+    {
+      "id": "r11",
+      "name": "豆腐蔬菜杂烩",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "tofu", "amount": 250, "unit": "g" },
+        { "id": "spinach", "amount": 150, "unit": "g" },
+        { "id": "mushroom", "amount": 100, "unit": "g" },
+        { "id": "bell_pepper", "amount": 80, "unit": "g" },
+        { "id": "olive_oil", "amount": 3, "unit": "ml" }
+      ],
+      "steps": [
+        "豆腐切2cm块，用厨房纸吸去表面水分。",
+        "平底锅加微量橄榄油，中小火将豆腐煎至两面微黄。",
+        "加入蘑菇片和彩椒丝翻炒2分钟。",
+        "最后加入菠菜，快速翻炒至菠菜变软。",
+        "加少许盐、白胡椒粉和几滴香油提味。"
+      ],
+      "rationale": "豆腐是低热量高蛋白的植物性食材，250g豆腐提供20g蛋白质却仅190kcal。晚餐选择植物蛋白可减轻消化负担。菠菜和蘑菇搭配提供铁、钙和B族维生素。总热量约250kcal，如果晚上不饿这是最轻盈的选择。"
+    },
+    {
+      "id": "r12",
+      "name": "鸡蛋蔬菜燕麦粥（咸口）",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "oats", "amount": 30, "unit": "g" },
+        { "id": "eggs", "amount": 1, "unit": "个" },
+        { "id": "spinach", "amount": 100, "unit": "g" },
+        { "id": "mushroom", "amount": 60, "unit": "g" }
+      ],
+      "steps": [
+        "燕麦加300ml水煮3分钟至浓稠。",
+        "打入一个鸡蛋，快速搅散成蛋花。",
+        "加入切片蘑菇和菠菜，再煮1分钟。",
+        "加少许盐和白胡椒调味即可。"
+      ],
+      "rationale": "适量燕麦的膳食纤维和beta-葡聚糖有助于稳定夜间血糖，避免凌晨低血糖导致的皮质醇升高。鸡蛋蛋花增加蛋白质。总热量约250kcal，温暖饱腹，适合秋冬晚餐。"
+    },
+    {
+      "id": "r13",
+      "name": "番茄菌菇豆腐汤",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "tofu", "amount": 200, "unit": "g" },
+        { "id": "tomato", "amount": 200, "unit": "g" },
+        { "id": "mushroom", "amount": 100, "unit": "g" },
+        { "id": "celery", "amount": 80, "unit": "g" },
+        { "id": "eggs", "amount": 1, "unit": "个" }
+      ],
+      "steps": [
+        "番茄烫后去皮切块，豆腐切块，芹菜切段，蘑菇切片。",
+        "锅中少许油炒番茄至出汁，加水800ml烧开。",
+        "加入豆腐、蘑菇、芹菜煮5分钟。",
+        "打入蛋花，加盐和少许白胡椒粉调味。"
+      ],
+      "rationale": "汤类是减脂晚餐的绝佳选择——大量水分占据胃容量，热量却很低。番茄的酸味天然提鲜，减少用盐量。豆腐+鸡蛋提供约20g混合蛋白质。总热量约260kcal，营养足够而不超标。"
+    },
+    {
+      "id": "r14",
+      "name": "火鸡胸彩椒沙拉",
+      "mealType": "lunch",
+      "ingredients": [
+        { "id": "turkey_breast", "amount": 120, "unit": "g" },
+        { "id": "lettuce", "amount": 150, "unit": "g" },
+        { "id": "bell_pepper", "amount": 100, "unit": "g" },
+        { "id": "cucumber", "amount": 100, "unit": "g" },
+        { "id": "avocado", "amount": 0.25, "unit": "个" },
+        { "id": "olive_oil", "amount": 5, "unit": "ml" }
+      ],
+      "steps": [
+        "火鸡胸肉切薄片，用少许盐和黑胡椒腌制后煎熟（每面2分钟）。",
+        "生菜撕碎，彩椒切丝，黄瓜切片，牛油果切块。",
+        "所有蔬菜混合放入大碗。",
+        "放上煎好的火鸡胸肉，淋橄榄油和少许柠檬汁。"
+      ],
+      "rationale": "火鸡胸肉蛋白质含量高达30g/100g且脂肪仅1g，是蛋白质密度最高的肉类之一。大份沙拉提供大量纤维和微量元素，视觉体积大但热量低。总热量约370kcal，高蛋白高饱腹午餐。"
+    },
+    {
+      "id": "r15",
+      "name": "花菜炒鸡胸（伪炒饭）",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "cauliflower", "amount": 250, "unit": "g" },
+        { "id": "chicken_breast", "amount": 100, "unit": "g" },
+        { "id": "carrot", "amount": 50, "unit": "g" },
+        { "id": "corn", "amount": 30, "unit": "g（玉米粒）" },
+        { "id": "eggs", "amount": 1, "unit": "个" },
+        { "id": "olive_oil", "amount": 5, "unit": "ml" }
+      ],
+      "steps": [
+        "花菜用料理机打成米粒大小碎末（或用刀切碎）。",
+        "鸡胸肉切小丁，胡萝卜切小丁。",
+        "平底锅加橄榄油，先炒鸡蛋盛出。",
+        "同锅炒鸡胸丁至变色，加入胡萝卜丁和玉米粒翻炒。",
+        "加入花菜碎大火翻炒3分钟，加盐和少许酱油调味，最后拌入炒蛋。"
+      ],
+      "rationale": "花菜碎替代米饭是经典低碳水做法——250g花菜仅60kcal而同等体积米饭约300kcal。鸡胸+鸡蛋提供约35g蛋白质，胡萝卜玉米增加微量营养素和天然甜味。总热量约280kcal，低碳水高蛋白晚餐。"
+    },
+    {
+      "id": "r16",
+      "name": "西葫芦鸡蛋饼",
+      "mealType": "breakfast",
+      "ingredients": [
+        { "id": "zucchini", "amount": 200, "unit": "g" },
+        { "id": "eggs", "amount": 2, "unit": "个" },
+        { "id": "whole_wheat_bread", "amount": 30, "unit": "g" },
+        { "id": "olive_oil", "amount": 3, "unit": "ml" }
+      ],
+      "steps": [
+        "西葫芦擦丝，加少许盐腌5分钟，挤去多余水分。",
+        "鸡蛋打散，加入西葫芦丝、撕碎的全麦面包，搅拌均匀。",
+        "平底锅刷薄油，中小火，倒入蛋液摊平。",
+        "煎至底部金黄后翻面，两面煎熟即可。"
+      ],
+      "rationale": "西葫芦含水量95%，200g仅34kcal但能做出很大一张饼。全麦面包碎替代面粉，增加纤维减少精制碳水。两个鸡蛋保证蛋白质。总热量约280kcal，营养均衡的低卡早餐。"
+    },
+    {
+      "id": "r17",
+      "name": "海带豆腐味噌汤 + 糙米饭团",
+      "mealType": "dinner",
+      "ingredients": [
+        { "id": "seaweed", "amount": 50, "unit": "g（湿重）" },
+        { "id": "tofu", "amount": 150, "unit": "g" },
+        { "id": "mushroom", "amount": 60, "unit": "g" },
+        { "id": "brown_rice", "amount": 100, "unit": "g（熟重）" }
+      ],
+      "steps": [
+        "海带泡发洗净切段。豆腐切小方块。",
+        "锅中加水600ml烧开，放入海带煮5分钟。",
+        "加入豆腐和蘑菇再煮3分钟。",
+        "关火后溶入味噌（可选，少许），撒葱花。",
+        "糙米饭捏成小饭团，配汤食用。"
+      ],
+      "rationale": "海带是零热量食材，富含碘和褐藻胶，能增加汤的鲜味和饱腹感。味噌发酵产生益生菌和鲜味物质。小饭团控制碳水摄入量。总热量约200kcal，日式轻晚餐风格，温暖低卡。"
+    }
+  ]
+}

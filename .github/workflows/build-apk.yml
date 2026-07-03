@@ -1,0 +1,69 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-35 build-tools;35.0.0'
+
+      - name: Copy web assets to www
+        run: |
+          mkdir -p www
+          cp -r index.html manifest.json sw.js recipes.json css js assets www/
+
+      - name: Generate keystore
+        run: |
+          keytool -genkey -v \
+            -keystore android/slimfit.keystore \
+            -alias slimfit \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass "${{ secrets.KEYSTORE_PASS }}" \
+            -keypass "${{ secrets.KEYSTORE_PASS }}" \
+            -dname "CN=SlimFit, OU=App, O=SlimFit, L=Beijing, ST=Beijing, C=CN"
+
+      - name: Create keystore.properties
+        run: |
+          echo "storeFile=slimfit.keystore" > android/keystore.properties
+          echo "storePassword=${{ secrets.KEYSTORE_PASS }}" >> android/keystore.properties
+          echo "keyAlias=slimfit" >> android/keystore.properties
+          echo "keyPassword=${{ secrets.KEYSTORE_PASS }}" >> android/keystore.properties
+
+      - name: Grant gradlew execute permission
+        run: chmod +x android/gradlew
+
+      - name: Build Release APK
+        working-directory: android
+        run: ./gradlew assembleRelease
+
+      - name: Build Debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SlimFit-Release-APK
+          path: android/app/build/outputs/apk/release/app-release.apk
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SlimFit-Debug-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk

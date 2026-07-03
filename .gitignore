@@ -1,0 +1,11 @@
+node_modules/
+android/.gradle/
+android/app/build/
+android/build/
+android/captures/
+android/local.properties
+www/
+*.keystore
+!android/slimfit.keystore
+keystore.properties
+.DS_Store

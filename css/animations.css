@@ -1,0 +1,135 @@
+/* ====== Keyframe Animations ====== */
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Slide */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+/* Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Spin */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Celebration text */
+@keyframes celebrateText {
+  0% { transform: scale(0.3) rotate(-5deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Float up and fade */
+@keyframes floatUpFade {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+/* Ring fill animation */
+@keyframes ringFill {
+  from { stroke-dashoffset: 326.73; }
+}
+
+/* Stage upgrade celebration */
+@keyframes stageUpgradeGlow {
+  0%, 100% { box-shadow: 0 0 20px var(--color-primary); }
+  50% { box-shadow: 0 0 60px var(--color-accent), 0 0 100px var(--color-primary); }
+}
+
+/* Toast entry/exit */
+@keyframes toastIn {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes toastOut {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100%); opacity: 0; }
+}
+
+/* ====== Utility Animation Classes ====== */
+.anim-fade-in {
+  animation: fadeIn var(--transition-normal) ease forwards;
+}
+
+.anim-fade-in-up {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.anim-scale-in {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+.anim-pop-in {
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.anim-bounce {
+  animation: bounce 0.5s ease;
+}
+
+.anim-pulse {
+  animation: pulse 0.5s ease;
+}
+
+.anim-shake {
+  animation: shake 0.5s ease;
+}
+
+.anim-float-up {
+  animation: floatUpFade 1.5s ease forwards;
+}

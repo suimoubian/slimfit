@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SlimFit</string>
+    <string name="title_activity_main">SlimFit</string>
+    <string name="package_name">com.slimfit.app</string>
+    <string name="custom_url_scheme">com.slimfit.app</string>
+</resources>

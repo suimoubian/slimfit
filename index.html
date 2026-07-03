@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#a8d8ea">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SlimFit">
+  <meta name="description" content="减肥打卡助手 - 记录你的每一天">
+  <title>SlimFit - 减肥打卡</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Modal Container -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box" id="modal-box"></div>
+  </div>
+
+  <!-- App Shell -->
+  <div id="app">
+
+    <!-- Sidebar (Desktop) -->
+    <nav id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">&#9670;</span>
+        <span class="brand-text">SlimFit</span>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="#checkin" class="nav-link active" data-route="checkin">
+          <span class="nav-icon">&#9745;</span> 打卡
+        </a></li>
+        <li><a href="#health" class="nav-link" data-route="health">
+          <span class="nav-icon">&#9829;</span> 健康
+        </a></li>
+        <li><a href="#plan" class="nav-link" data-route="plan">
+          <span class="nav-icon">&#9733;</span> 计划
+        </a></li>
+        <li><a href="#summary" class="nav-link" data-route="summary">
+          <span class="nav-icon">&#9733;</span> 总结
+        </a></li>
+        <li><a href="#settings" class="nav-link" data-route="settings">
+          <span class="nav-icon">&#9881;</span> 设置
+        </a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+      <!-- ====== Checkin View ====== -->
+      <section id="view-checkin" class="view active">
+        <header class="view-header">
+          <h1>今日打卡</h1>
+          <p class="view-subtitle" id="header-date"></p>
+        </header>
+
+        <!-- Stage Progress -->
+        <div class="card stage-card" id="stage-card">
+          <div class="stage-info">
+            <span class="stage-badge" id="stage-badge">阶段 1</span>
+            <span class="stage-name" id="stage-name">迈出第一步</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="stage-progress-bar"></div>
+          </div>
+          <p class="stage-days" id="stage-days-text"></p>
+        </div>
+
+        <!-- Streak -->
+        <div class="card streak-card">
+          <div class="streak-number" id="streak-count">0</div>
+          <div class="streak-label">连续打卡 (天)</div>
+        </div>
+
+        <!-- Dynamic Checkin Buttons -->
+        <div class="card checkin-actions" id="checkin-btns-container"></div>
+
+        <!-- Encouragement -->
+        <div class="card encouragement-card hidden" id="encouragement-card">
+          <p class="encouragement-text" id="encouragement-text"></p>
+        </div>
+
+        <!-- Calendar Type Tabs -->
+        <div class="card calendar-card">
+          <div class="calendar-type-tabs" id="calendar-type-tabs"></div>
+          <div class="calendar-header">
+            <button class="btn btn-icon-only" id="cal-prev">&#9664;</button>
+            <span class="calendar-month" id="cal-month-label"></span>
+            <button class="btn btn-icon-only" id="cal-next">&#9654;</button>
+          </div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+          <div class="calendar-legend" id="calendar-legend"></div>
+        </div>
+      </section>
+
+      <!-- ====== Health View ====== -->
+      <section id="view-health" class="view">
+        <header class="view-header">
+          <h1>健康中心</h1>
+          <p class="view-subtitle">了解你的身体状况</p>
+        </header>
+
+        <div class="card">
+          <h2 class="card-title">身体数据</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>身高 (cm)</label>
+              <input type="number" id="input-height" placeholder="例如: 170" min="100" max="250" step="0.1">
+            </div>
+            <div class="form-group">
+              <label>体重 (kg)</label>
+              <input type="number" id="input-weight" placeholder="例如: 70" min="30" max="300" step="0.1">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>性别</label>
+              <select id="input-gender">
+                <option value="male">男</option>
+                <option value="female">女</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>年龄</label>
+              <input type="number" id="input-age" placeholder="例如: 25" min="10" max="120">
+            </div>
+          </div>
+          <button class="btn btn-primary" id="btn-calc-health">计算</button>
+        </div>
+
+        <div class="card hidden" id="bmi-result-card">
+          <h2 class="card-title">你的身体报告</h2>
+          <div class="bmi-display">
+            <div class="bmi-ring" id="bmi-ring">
+              <svg viewBox="0 0 120 120">
+                <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                <circle class="ring-fill" cx="60" cy="60" r="52" id="bmi-ring-fill"/>
+              </svg>
+              <div class="bmi-value" id="bmi-value">--</div>
+            </div>
+            <div class="bmi-details">
+              <div class="bmi-status" id="bmi-status"></div>
+              <div class="bmi-extra" id="bmi-extra"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <h2 class="card-title" style="margin:0">减肥餐推荐</h2>
+            <button class="btn btn-outline" id="btn-update-recipes" style="font-size:var(--font-size-sm)">&#9733; 更新食谱</button>
+          </div>
+          <div class="form-group" style="margin-top:var(--space-md)">
+            <label>选择餐段</label>
+            <select id="input-meal-type">
+              <option value="all">全天 (早+中+晚)</option>
+              <option value="breakfast">早餐</option>
+              <option value="lunch">午餐</option>
+              <option value="dinner">晚餐</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" id="btn-gen-meal">生成减肥餐</button>
+          <p style="font-size:var(--font-size-sm);color:var(--text-muted);margin-top:4px" id="recipe-status">
+            食谱数据: 加载中...
+          </p>
+        </div>
+
+        <div class="card hidden" id="meal-result-card">
+          <div id="meal-result-content"></div>
+        </div>
+      </section>
+
+      <!-- ====== Plan View ====== -->
+      <section id="view-plan" class="view">
+        <header class="view-header">
+          <h1>减肥计划</h1>
+          <p class="view-subtitle">选择适合你的方案 (共6档)</p>
+        </header>
+        <div id="plan-questionnaire"></div>
+        <div id="plan-list"></div>
+        <div class="card hidden" id="plan-detail-card">
+          <div id="plan-detail-content"></div>
+        </div>
+      </section>
+
+      <!-- ====== Summary View ====== -->
+      <section id="view-summary" class="view">
+        <header class="view-header">
+          <h1>打卡总结</h1>
+          <p class="view-subtitle">回顾你的坚持与进步</p>
+        </header>
+        <div class="card">
+          <div class="toggle-group" style="margin-bottom:var(--space-sm)">
+            <button class="btn btn-outline toggle-option summary-period-btn active" data-period="week">本周</button>
+            <button class="btn btn-outline toggle-option summary-period-btn" data-period="month">本月</button>
+            <button class="btn btn-outline toggle-option summary-period-btn" data-period="quarter">本季度</button>
+          </div>
+        </div>
+        <div id="summary-content"></div>
+      </section>
+
+      <!-- ====== Settings View ====== -->
+      <section id="view-settings" class="view">
+        <header class="view-header">
+          <h1>设置</h1>
+          <p class="view-subtitle">个性化你的体验</p>
+        </header>
+
+        <div class="card">
+          <h2 class="card-title">主题颜色</h2>
+          <div class="color-presets" id="color-presets"></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>自定义颜色</label>
+              <input type="color" id="input-custom-color" value="#a8d8ea">
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">背景设置</h2>
+          <div class="form-group">
+            <label>背景类型</label>
+            <select id="input-bg-type">
+              <option value="solid">纯色</option>
+              <option value="gradient">渐变</option>
+              <option value="image">图片 URL</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="bg-color-group">
+            <label>背景颜色</label>
+            <input type="color" id="input-bg-color" value="#f5f5f5">
+          </div>
+          <div class="form-group hidden" id="bg-url-group">
+            <label>图片 URL</label>
+            <input type="url" id="input-bg-url" placeholder="https://...">
+          </div>
+          <button class="btn btn-primary" id="btn-apply-bg">应用</button>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">字体大小</h2>
+          <div class="toggle-group">
+            <button class="btn btn-outline toggle-option active" data-font="medium">中</button>
+            <button class="btn btn-outline toggle-option" data-font="small">小</button>
+            <button class="btn btn-outline toggle-option" data-font="large">大</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">暗黑模式</h2>
+          <label class="switch-label">
+            <input type="checkbox" id="input-dark-mode">
+            <span class="switch-track"><span class="switch-thumb"></span></span>
+            <span>启用暗黑模式</span>
+          </label>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">食谱更新</h2>
+          <div class="form-group">
+            <label>远程食谱 URL</label>
+            <input type="url" id="input-recipe-url" placeholder="留空使用内置食谱。输入URL可从网络更新">
+          </div>
+          <button class="btn btn-outline" id="btn-save-recipe-url">保存 URL</button>
+          <button class="btn btn-outline" id="btn-check-recipes" style="margin-left:8px">立即检查更新</button>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">数据管理</h2>
+          <div class="btn-group">
+            <button class="btn btn-outline" id="btn-export-data">导出数据</button>
+            <button class="btn btn-outline" id="btn-import-data">导入数据</button>
+            <button class="btn btn-outline btn-danger" id="btn-reset-data">重置数据</button>
+          </div>
+          <input type="file" id="import-file-input" accept=".json" class="hidden">
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Tab Bar (Mobile) -->
+    <nav id="tab-bar" class="tab-bar">
+      <a href="#checkin" class="tab-link active" data-route="checkin">
+        <span class="tab-icon">&#9745;</span>
+        <span class="tab-label">打卡</span>
+      </a>
+      <a href="#health" class="tab-link" data-route="health">
+        <span class="tab-icon">&#9829;</span>
+        <span class="tab-label">健康</span>
+      </a>
+      <a href="#plan" class="tab-link" data-route="plan">
+        <span class="tab-icon">&#9733;</span>
+        <span class="tab-label">计划</span>
+      </a>
+      <a href="#summary" class="tab-link" data-route="summary">
+        <span class="tab-icon">&#9733;</span>
+        <span class="tab-label">总结</span>
+      </a>
+      <a href="#settings" class="tab-link" data-route="settings">
+        <span class="tab-icon">&#9881;</span>
+        <span class="tab-label">设置</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <!-- Scripts (order matters) -->
+  <script src="js/storage.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/checkin.js"></script>
+  <script src="js/health.js"></script>
+  <script src="js/diet.js"></script>
+  <script src="js/plan.js"></script>
+  <script src="js/summary.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "slimfit",
+  "version": "2.0.0",
+  "description": "SlimFit - Weight Loss Check-in App",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static PWA - no build step needed'",
+    "cap:sync": "npx cap sync",
+    "cap:open": "npx cap open android"
+  },
+  "keywords": ["health", "fitness", "weight-loss", "pwa"],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1"
+  }
+}
